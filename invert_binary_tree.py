@@ -30,6 +30,7 @@ Google: 90% of our engineers use the software you wrote (Homebrew), but you canâ
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     def invertTree(self, root: TreeNode) -> TreeNode:
         if not root:
@@ -46,4 +47,21 @@ class Solution:
                 
             if node.left:
                 stack.append(node.left)
+        return root
+
+#recursive solution
+class Solution:
+    def swap(self, root):
+        if not root:
+            return None
+        
+        self.swap(root.left)
+        self.swap(root.right)
+        
+        curr = root.left
+        root.left = root.right
+        root.right = curr
+        
+    def invertTree(self, root: TreeNode) -> TreeNode:
+        self.swap(root)
         return root
