@@ -26,3 +26,28 @@ All of the nodes' values will be unique.
 The given node will not be the tail and it will always be a valid node of the linked list.
 Do not return anything from your function.
 """
+
+# edge cases: when given Head is None, when there are duplications in the list
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def deleteNode(self, node):
+        """
+        :type node: ListNode
+        :rtype: void Do not return anything, modify node in-place instead.
+        """
+        
+        curr = node
+        
+        while node.next!=None:
+            node.val = node.next.val
+            curr = node
+            node = node.next
+        curr.next = None
+
+# this had weird params for a linked list problem
