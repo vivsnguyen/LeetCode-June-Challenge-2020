@@ -27,3 +27,17 @@ Constraints:
 0 <= t.length <= 10^4
 Both strings consists only of lowercase characters.
 """
+
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        #pointer index
+        s_i = 0
+        t_i = 0
+        
+        while s_i < len(s) and t_i < len(t):
+            if s[s_i] == t[t_i]:
+                s_i += 1
+                
+            t_i += 1
+            
+        return s_i == len(s)
